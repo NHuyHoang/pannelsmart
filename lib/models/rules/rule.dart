@@ -6,28 +6,50 @@ abstract class Rule {
   bool validate();
 }
 
-class QuestionRuleDecorator implements Question {
-  final Question question;
+class AnswerRuleDecorator implements Answer {
+  final Answer answer;
 
-  QuestionRuleDecorator({this.question});
-
-  @override
-  String get description => question.description;
-
-  @override
-  String get type => question.type;
+  AnswerRuleDecorator({this.answer});
 
   @override
   bool validate() {
-    return question.validate();
+    return answer.validate();
   }
+
+  @override
+  void set answerText(String _answerText) => answer.answerText = _answerText;
+
+  @override
+  String get answerText => answer.answerText;
 }
 
-class LengthRuleDecorator extends QuestionRuleDecorator {
+class MaxLengthRuleDecorator extends AnswerRuleDecorator {
+  final int maxLength;
+
+  MaxLengthRuleDecorator(
+    Answer answer, {
+    this.maxLength,
+  }) : super(answer: answer);
 
   @override
   bool validate() {
     bool isValid = super.validate();
-    return isValid && true;
+    if (isValid) return false;
+    if (answerText.length > maxLength) return false;
+    return true;
+  }
+}
+
+class MinLengthRuleDecorator extends AnswerRuleDecorator {
+  final int minLength;
+  MinLengthRuleDecorator(Answer answer, {this.minLength})
+      : super(answer: answer);
+
+  @override
+  bool validate() {
+    bool isValid = super.validate();
+    if (isValid) return false;
+    if (answerText.length < minLength) return false;
+    return true;
   }
 }
