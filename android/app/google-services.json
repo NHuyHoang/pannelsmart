@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "677576228847",
+    "firebase_url": "https://pannelsmart.firebaseio.com",
+    "project_id": "pannelsmart",
+    "storage_bucket": "pannelsmart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677576228847:android:683e4c9ef64ce9a2",
+        "android_client_info": {
+          "package_name": "com.panelsmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677576228847-l6e1omov44056kekkn8jk555aprueaks.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.panelsmart",
+            "certificate_hash": "d784b5921c52c787f6024d229815bd4d1bc3039f"
+          }
+        },
+        {
+          "client_id": "677576228847-m6ppuchfvone11iachnbbrub2doh963r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxxABwAc6sHjeMklcGufu3h4aoiwWRBi8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677576228847-m6ppuchfvone11iachnbbrub2doh963r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

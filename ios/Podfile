@@ -1,0 +1,6 @@
+
+
+target 'Runner' do
+end
+
+pod 'Firebase/Core'
