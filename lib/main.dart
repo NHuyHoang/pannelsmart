@@ -2,7 +2,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:panelsmart/question.dart';
+import 'package:panelsmart/models/questions/main.dart';
+import 'package:panelsmart/question/question.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,12 +30,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool loading = false;
-
+ 
   @override
   void initState() {
     super.initState();
     DatabaseReference ref =
         FirebaseDatabase.instance.reference().child('quests');
+
+    
+    // print(q.answer.validate());
+    // print(q.answer.result);
   }
 
   Future<void> _fetchQuestions(List<String> ids) async {
@@ -46,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
       futures.add(ref.once().then((DataSnapshot data) => data.value));
     });
     var results = await Future.wait(futures);
-    print(results);
     this.setState(() => loading = false);
     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
       return QuestionScreen(
@@ -129,5 +133,3 @@ class QuestRow extends StatelessWidget {
     ;
   }
 }
-
-
